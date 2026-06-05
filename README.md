@@ -2,6 +2,8 @@
 
 Modern, conversion-focused landing page for the **Uptime!** Chrome extension — an AI-powered sitting reminder built with Claude API and Chrome MCP.
 
+Link: https://uptime-landing-page-tawny.vercel.app/
+
 ## Tech Stack
 
 | Tool | Purpose |
