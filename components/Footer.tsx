@@ -42,10 +42,15 @@ export default function Footer() {
 
         <div className="mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-700">
           <p>© {new Date().getFullYear()} Uptime! All rights reserved.</p>
-          <p className="flex items-center gap-1.5">
-            Your body will thank you
-            <Image src="/mint.png" alt="Mint" width={16} height={16} className="inline-block" />
-          </p>
+          <div className="flex items-center gap-4">
+            <a href="/privacy" className="hover:text-slate-400 transition-colors">
+              Privacy Policy
+            </a>
+            <p className="flex items-center gap-1.5">
+              Your body will thank you
+              <Image src="/mint.png" alt="Mint" width={16} height={16} className="inline-block" />
+            </p>
+          </div>
         </div>
       </div>
     </footer>
