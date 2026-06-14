@@ -2,8 +2,10 @@
 
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import { trackEvent } from '@/lib/analytics'
+import { CHROME_STORE_URL } from '@/lib/constants'
 import { Globe, Menu, X } from 'lucide-react'
 
 const navLinks = [
@@ -62,15 +64,20 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <Button
-            size="sm"
-            className="hidden sm:inline-flex bg-teal-500 hover:bg-teal-600 text-white shadow-md font-semibold"
+          <a
+            href={CHROME_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+              buttonVariants({ size: 'sm' }),
+              'hidden sm:inline-flex bg-teal-500 hover:bg-teal-600 text-white shadow-md font-semibold'
+            )}
             onClick={() => trackEvent('add_to_chrome_clicked', { location: 'navbar' })}
             aria-label="Add Uptime! to Chrome"
           >
             <Globe size={15} className="mr-1.5" aria-hidden="true" />
             Add to Chrome
-          </Button>
+          </a>
 
           <button
             className={`md:hidden p-2 rounded-md ${scrolled ? 'text-slate-700' : 'text-white'}`}
@@ -96,8 +103,14 @@ export default function Navbar() {
                 {label}
               </a>
             ))}
-            <Button
-              className="mt-2 bg-teal-500 hover:bg-teal-600 text-white w-full font-semibold"
+            <a
+              href={CHROME_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                buttonVariants(),
+                'mt-2 bg-teal-500 hover:bg-teal-600 text-white w-full font-semibold'
+              )}
               onClick={() => {
                 setMobileOpen(false)
                 trackEvent('add_to_chrome_clicked', { location: 'navbar_mobile' })
@@ -106,7 +119,7 @@ export default function Navbar() {
             >
               <Globe size={16} className="mr-2" aria-hidden="true" />
               Add to Chrome — Free
-            </Button>
+            </a>
           </div>
         </div>
       )}

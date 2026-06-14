@@ -2,8 +2,10 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import { trackEvent } from '@/lib/analytics'
+import { CHROME_STORE_URL } from '@/lib/constants'
 import { Globe } from 'lucide-react'
 
 const perks = [
@@ -75,15 +77,20 @@ export default function FinalCTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.65, delay: 0.3 }}
         >
-          <Button
-            size="xl"
-            className="bg-white text-teal-700 hover:bg-teal-50 font-bold shadow-2xl text-lg px-12 h-16 animate-pulse-glow"
+          <a
+            href={CHROME_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+              buttonVariants({ size: 'xl' }),
+              'bg-white text-teal-700 hover:bg-teal-50 font-bold shadow-2xl text-lg px-12 h-16 animate-pulse-glow'
+            )}
             onClick={() => trackEvent('add_to_chrome_clicked', { location: 'final_cta' })}
             aria-label="Add Uptime! to Chrome — free, 30-second install"
           >
             <Globe size={22} className="mr-2.5" aria-hidden="true" />
             Add to Chrome — Free
-          </Button>
+          </a>
         </motion.div>
 
         <motion.ul

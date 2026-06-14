@@ -2,9 +2,11 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { cn } from '@/lib/utils'
 import { trackEvent } from '@/lib/analytics'
+import { CHROME_STORE_URL } from '@/lib/constants'
 import { Globe, Sparkles, ArrowDown } from 'lucide-react'
 
 /*
@@ -118,15 +120,20 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.5 }}
           >
-            <Button
-              size="xl"
-              className="bg-white text-teal-700 hover:bg-teal-50 font-bold shadow-2xl hover:shadow-teal-900/30 transition-all duration-200 animate-pulse-glow"
+            <a
+              href={CHROME_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                buttonVariants({ size: 'xl' }),
+                'bg-white text-teal-700 hover:bg-teal-50 font-bold shadow-2xl hover:shadow-teal-900/30 transition-all duration-200 animate-pulse-glow'
+              )}
               onClick={() => trackEvent('add_to_chrome_clicked', { location: 'hero' })}
               aria-label="Add Uptime! extension to Chrome — free"
             >
               <Globe size={20} className="mr-2" aria-hidden="true" />
               Add to Chrome — It&apos;s Free
-            </Button>
+            </a>
             <Button
               size="xl"
               variant="outline"
