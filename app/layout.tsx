@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   description:
     "Stop sitting too long. Uptime! detects when you've been glued to your chair and rewards you with AI-generated fun facts, compliments, and mini challenges. Your adorable otter mascot is waiting.",
   keywords: ['sitting reminder', 'break reminder', 'chrome extension', 'health', 'productivity', 'AI'],
+  verification: {
+    google: 'MpnpRCStSd0yTdXkUGgwm7FMpqFNB_CypTUHzRo16ZE',
+  },
   icons: {
     icon: '/mint.png',
     apple: '/mint.png',
