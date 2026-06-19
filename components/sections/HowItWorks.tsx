@@ -29,7 +29,7 @@ const steps = [
     emoji: '🎁',
     title: 'Rewards',
     description:
-      'Stand up and get rewarded! Gemini AI generates a personalized fun fact, genuine compliment, or quick mini challenge just for you.',
+      'Stand up and get rewarded! Gemini AI generates a personalized little-known fun fact across various topics, and...a special surprise if you complete 3 breaks. 👀',
     gradientFrom: 'from-sky-500',
     gradientTo: 'to-cyan-400',
     delay: 0.3,
