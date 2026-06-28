@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -55,20 +56,29 @@ const HEADLINE_A = 'Your Body Deserves Better Than Your Chair'
 const ACTIVE_HEADLINE = HEADLINE_A
 
 export default function Hero() {
+  const [memeLoaded, setMemeLoaded] = useState(false)
+
   return (
     <section
       aria-label="Hero — Uptime! Chrome extension"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-teal-800 via-teal-600 to-cyan-600"
     >
-      {/* Floating meme otter — appears once, drifts up, disappears */}
+      {/* Floating meme otter — animates only after image is loaded */}
       <motion.div
         className="absolute bottom-24 left-10 sm:left-20 pointer-events-none z-0 select-none"
         aria-hidden="true"
         initial={{ opacity: 0, y: 60 }}
-        animate={{ opacity: [0, 0.65, 0.65, 0], y: [60, 30, 0, -50] }}
-        transition={{ duration: 7.5, delay: 1.8, ease: 'easeInOut', times: [0, 0.2, 0.7, 1] }}
+        animate={memeLoaded ? { opacity: [0, 0.65, 0.65, 0], y: [60, 30, 0, -50] } : false}
+        transition={{ duration: 7.5, delay: 0.3, ease: 'easeInOut', times: [0, 0.2, 0.7, 1] }}
       >
-        <Image src="/mint_meme.png" alt="" width={140} height={140} />
+        <Image
+          src="/mint_meme.png"
+          alt=""
+          width={140}
+          height={140}
+          loading="eager"
+          onLoad={() => setMemeLoaded(true)}
+        />
       </motion.div>
 
       {/* Decorative background blobs */}
