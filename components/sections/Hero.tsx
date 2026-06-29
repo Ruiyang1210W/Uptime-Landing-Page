@@ -72,7 +72,7 @@ export default function Hero() {
         transition={{ duration: 7.5, delay: 0.3, ease: 'easeInOut', times: [0, 0.2, 0.7, 1] }}
       >
         <Image
-          src="/mint_meme.png"
+          src="/mint_meme.PNG"
           alt=""
           width={140}
           height={140}
